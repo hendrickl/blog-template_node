@@ -1,14 +1,20 @@
 const express = require("express");
+const morgan = require("morgan");
 
 // express app
 const app = express();
 
-// listen for requests
-app.listen(3000);
-
 // register view engine
 app.set("view engine", "ejs");
 // app.set('views', 'myviews');
+
+// listen for requests
+app.listen(3000);
+
+// Middleware & static files : wich we want to make public
+app.use(express.static("public"));
+
+app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
   const blogs = [
