@@ -23,7 +23,7 @@ app.set("view engine", "ejs");
 
 // Middleware & static files : wich we want to make public
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true })); // For accepting form data
+app.use(express.urlencoded({ extended: true })); // Opt for accepting form data
 app.use(morgan("dev"));
 
 // Routes
@@ -48,7 +48,15 @@ app.get("/blogs", (req, res) => {
 });
 
 app.post("/blogs", (req, res) => {
-  console.log(req.body);
+  const blog = new Blog(req.body);
+  blog
+    .save()
+    .then((result) => {
+      res.redirect("/blogs");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.get("/blogs/create", (req, res) => {
