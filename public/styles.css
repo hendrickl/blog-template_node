@@ -66,10 +66,10 @@ h3 {
   display: block;
   margin: 40px 0;
   padding-left: 30px;
-  border-left: 6px solid crimson;
+  border-left: 6px solid #22427c;
 }
 .blogs a:hover h3 {
-  color: crimson;
+  color: #22427c;
 }
 
 /* details styles */
@@ -111,7 +111,7 @@ textarea {
 }
 .create-blog button {
   margin-top: 20px;
-  background: crimson;
+  background: #22427c;
   color: white;
   padding: 6px;
   border: 0;
